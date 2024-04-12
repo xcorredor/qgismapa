@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
         #map {
-            width: 1190px;
-            height: 532px;
+            width: 1016px;
+            height: 577px;
         }
         </style>
         <title></title>
@@ -31,12 +31,13 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/estados_de_vzla_1.js"></script>
-        <script src="data/Esequibo_2.js"></script>
+        <script src="data/inces_1.js"></script>
+        <script src="data/kiosko_2.js"></script>
+        <script src="data/kioskodistancia_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-0.0003627363828068244,-76.94551425038793],[12.333801053950664,-49.082344212241274]]);
+        }).fitBounds([[10.48178478149261,-66.9090362694266],[10.48727837353906,-66.8991839455726]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -78,28 +79,13 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_estados_de_vzla_1(feature, layer) {
+        function pop_inces_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['boundary'] !== null ? autolinker.link(feature.properties['boundary'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['admin_level'] !== null ? autolinker.link(feature.properties['admin_level'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['parents'] !== null ? autolinker.link(feature.properties['parents'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['local_name'] !== null ? autolinker.link(feature.properties['local_name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['name_en'] !== null ? autolinker.link(feature.properties['name_en'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['nombre'] !== null ? autolinker.link(feature.properties['nombre'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -109,9 +95,9 @@
             popup.setContent(updatedContent);
         }
 
-        function style_estados_de_vzla_1_0() {
+        function style_inces_1_0() {
             return {
-                pane: 'pane_estados_de_vzla_1',
+                pane: 'pane_inces_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -120,46 +106,31 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(196,60,57,1.0)',
+                fillColor: 'rgba(225,89,137,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_estados_de_vzla_1');
-        map.getPane('pane_estados_de_vzla_1').style.zIndex = 401;
-        map.getPane('pane_estados_de_vzla_1').style['mix-blend-mode'] = 'normal';
-        var layer_estados_de_vzla_1 = new L.geoJson(json_estados_de_vzla_1, {
+        map.createPane('pane_inces_1');
+        map.getPane('pane_inces_1').style.zIndex = 401;
+        map.getPane('pane_inces_1').style['mix-blend-mode'] = 'normal';
+        var layer_inces_1 = new L.geoJson(json_inces_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_estados_de_vzla_1',
-            layerName: 'layer_estados_de_vzla_1',
-            pane: 'pane_estados_de_vzla_1',
-            onEachFeature: pop_estados_de_vzla_1,
-            style: style_estados_de_vzla_1_0,
+            dataVar: 'json_inces_1',
+            layerName: 'layer_inces_1',
+            pane: 'pane_inces_1',
+            onEachFeature: pop_inces_1,
+            style: style_inces_1_0,
         });
-        bounds_group.addLayer(layer_estados_de_vzla_1);
-        map.addLayer(layer_estados_de_vzla_1);
-        function pop_Esequibo_2(feature, layer) {
+        bounds_group.addLayer(layer_inces_1);
+        map.addLayer(layer_inces_1);
+        function pop_kiosko_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['boundary'] !== null ? autolinker.link(feature.properties['boundary'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['admin_level'] !== null ? autolinker.link(feature.properties['admin_level'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['parents'] !== null ? autolinker.link(feature.properties['parents'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['local_name'] !== null ? autolinker.link(feature.properties['local_name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['name_en'] !== null ? autolinker.link(feature.properties['name_en'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ruta'] !== null ? autolinker.link(feature.properties['ruta'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -169,35 +140,85 @@
             popup.setContent(updatedContent);
         }
 
-        function style_Esequibo_2_0() {
+        function style_kiosko_2_0() {
             return {
-                pane: 'pane_Esequibo_2',
+                pane: 'pane_kiosko_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(219,30,42,1.0)',
                 dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(141,90,153,1.0)',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
                 interactive: true,
             }
         }
-        map.createPane('pane_Esequibo_2');
-        map.getPane('pane_Esequibo_2').style.zIndex = 402;
-        map.getPane('pane_Esequibo_2').style['mix-blend-mode'] = 'normal';
-        var layer_Esequibo_2 = new L.geoJson(json_Esequibo_2, {
+        map.createPane('pane_kiosko_2');
+        map.getPane('pane_kiosko_2').style.zIndex = 402;
+        map.getPane('pane_kiosko_2').style['mix-blend-mode'] = 'normal';
+        var layer_kiosko_2 = new L.geoJson(json_kiosko_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Esequibo_2',
-            layerName: 'layer_Esequibo_2',
-            pane: 'pane_Esequibo_2',
-            onEachFeature: pop_Esequibo_2,
-            style: style_Esequibo_2_0,
+            dataVar: 'json_kiosko_2',
+            layerName: 'layer_kiosko_2',
+            pane: 'pane_kiosko_2',
+            onEachFeature: pop_kiosko_2,
+            style: style_kiosko_2_0,
         });
-        bounds_group.addLayer(layer_Esequibo_2);
-        map.addLayer(layer_Esequibo_2);
+        bounds_group.addLayer(layer_kiosko_2);
+        map.addLayer(layer_kiosko_2);
+        function pop_kioskodistancia_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['distancia'] !== null ? autolinker.link(feature.properties['distancia'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+            var popup = layer.getPopup();
+            var content = popup.getContent();
+            var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
+            popup.setContent(updatedContent);
+        }
+
+        function style_kioskodistancia_3_0() {
+            return {
+                pane: 'pane_kioskodistancia_3',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,30,42,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_kioskodistancia_3');
+        map.getPane('pane_kioskodistancia_3').style.zIndex = 403;
+        map.getPane('pane_kioskodistancia_3').style['mix-blend-mode'] = 'normal';
+        var layer_kioskodistancia_3 = new L.geoJson(json_kioskodistancia_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_kioskodistancia_3',
+            layerName: 'layer_kioskodistancia_3',
+            pane: 'pane_kioskodistancia_3',
+            onEachFeature: pop_kioskodistancia_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_kioskodistancia_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_kioskodistancia_3);
+        map.addLayer(layer_kioskodistancia_3);
         setBounds();
         </script>
     </body>

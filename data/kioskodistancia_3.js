@@ -1,0 +1,1 @@
+var json_kioskodistancia_3 = {"type":"FeatureCollection","name":"kioskodistancia_3","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","distancia":"panaderia"},"geometry":{"type":"Point","coordinates":[-66.905319786315985,10.485783170750361]}}]}
